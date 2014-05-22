@@ -23,17 +23,19 @@
     }
     
     // todo Customize this url
-    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
+    NSURL *URL = [NSURL URLWithString:@"http://quiet-ravine-1936.herokuapp.com/cakes.json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               
                                NSError *jsonParseError;
-                               NSDictionary *cakeData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonParseError];
-
+                               NSArray *cakeData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonParseError];
+                               NSLog(@"%@", cakeData);
+                               
+                               
                                // todo process the cake data here
+                               
                                
                                [self.tableView reloadData];
                                
