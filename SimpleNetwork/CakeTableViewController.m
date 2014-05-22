@@ -35,6 +35,10 @@
                                
                                
                                // todo process the cake data here
+                               for(int i = 0; i < [cakeData count]; i++){
+                                   cakeList[i] = cakeData[i];
+                               }
+                               
                                
                                
                                [self.tableView reloadData];
